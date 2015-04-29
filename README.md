@@ -16,7 +16,7 @@ System Requirements:
 You must have a system that is running CodeBlocks IDE, or any other IDE. Any IDE will work, but CodeBlocks is the easiest to run that we have found because you do not need to compile multiple things in the terminal. CodeBlocks is available through Linux. If you cannot get CodeBlocks, you may use another IDE, but you must know how to compile multiple files in the terminal, or else you will only be making o object file, and it requires two to run (main.o and truepatricianmusic.o)
 
 Group Members:
-The team members are Branton DeMoss, Wilder Lavington, Adam Tammariello, and Jake Lazlo Bomark.
+The team members are Branton DeMoss, Wilder Lavington, and Jake Lazlo Bomark.
 
 Contributers:
 If you decided you wish to improve upon our system, pleace leave your name so we can give you credit!
