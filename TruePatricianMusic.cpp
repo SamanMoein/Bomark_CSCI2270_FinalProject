@@ -389,6 +389,10 @@ void Genre::GOAT(){
     return;
 }
 
+/* This generates a random number from a current time seed (found in main.cpp). Then, we move to the genre
+given by that number in library vector. From here we generate another ranom number within the bounds of
+that linked vector by modding by vector size, and produce a random suggestion. No pre condition, but the post condition is a string of
+the return value "album by band */
 std::string Genre::randomSuggestion()
 {
     string random;
@@ -414,6 +418,10 @@ std::string Genre::randomSuggestion()
     return random;
 }
 
+/*This generates a random suggestion gauranteed to have a rating <= 85/100. If the "bad" vector hasn't
+been generated yet (given by badbuilt boolean) we build the vector of al albums with rating <= 85 and produce
+a random suggestion in a manner similar to randomSuggestion() function above. No pre condition, but the post condition is a string of
+the return value "album by band*/
 std::string Genre::badSuggestion()
 {
     if(!badbuilt)
@@ -454,6 +462,9 @@ std::string Genre::badSuggestion()
 
 }
 
+/*Similar in function to bad suggestion, but for all ratings >85.
+Also may only be called if user has yearly income >=$60,000. No pre condition, but the post condition is a string of
+the return value "album by band"*/
 std::string Genre::patricianSuggestion()
 {
     if(!goodbuilt)
