@@ -12,7 +12,12 @@ using namespace std;
 
 bool goodbuilt = false;
 bool badbuilt = false;
-
+struct InfoStorage{
+    double rating;
+    string album;
+    string artist;
+    string genre;
+};
 /* this is a constructor for the Genre class. The Genre class is what contains the vector to store the pointers to each
 linked list. The pre-conditions are none, but it creates a nil pointer to a new Album make sure no pointers overlap.
 there are no returning conditions. */
@@ -35,7 +40,7 @@ void Genre::initializeLibrary(std::string filename){
         int entries = -1;
         string line, parse, artist, album, genre, ratingStr;
         int counting;
-        int rating;
+        double rating;
         while(getline(infile,line)){        // while there are lines to get
             entries++;
             counting=-1;
@@ -50,7 +55,8 @@ void Genre::initializeLibrary(std::string filename){
                 }
                 else if(counting==2){
                     ratingStr=parse;
-                    rating=atoi(ratingStr.c_str());
+                    rating=atof(ratingStr.c_str());
+
                 }
                 else{
                     genre=parse;
@@ -79,7 +85,7 @@ heads for each genre with the new one. If the genre already exists, it will find
 the linked list until it finds the appropriate placement based on its rating. The albums are sorted hightest rating to lowest
 There is no post condition, but the pre condition is the artist, album, rating,and genre, in that order. The artist, album,
 and genre must be strings, where the rating must be an int. */
-void Genre::addAlbumNode(std::string artist, std::string album, int rating, std::string genre){
+void Genre::addAlbumNode(std::string artist, std::string album, double rating, std::string genre){
 	Album *newOne = new Album(artist,album,rating,genre);
 	newOne->score=0;
 	int root=0;
@@ -148,17 +154,19 @@ int Genre::getRoot(std::string genre){
             return i;
     }
 }
-
 /* This prints the library. It is the recursive version of the function that goes through the linked list and prints
 each album that it contains. its precondition is the node in the linked list and its return is none, but is does
 cout the information of the album*/
 void Genre::printLibrary(Album *node){
+    Album * head = node;
+    int counter = 0;
     while(node!=nil){
         cout<<node->genre<<": "<<node->album<<" by "<<node->band<<" rated "<<node->rating<<endl;
         node=node->next;
+        counter++;
     }
+    node = head;
 }
-
 /* This is the caller to print the library. no preconditions and no post conditions, but what is does is go throguh the vector
 of genres and calls the print library recursive for each head of each genre in the vector */
 void Genre::printLibrary(){
@@ -502,3 +510,4 @@ std::string Genre::patricianSuggestion()
 
     return godly;
 }
+
