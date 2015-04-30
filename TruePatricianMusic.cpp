@@ -153,6 +153,7 @@ int Genre::getRoot(std::string genre){
         if(library[i]->genre == genre)
             return i;
     }
+        return -1;//or something else and then you should always check it's not -1.
 }
 /* This prints the library. It is the recursive version of the function that goes through the linked list and prints
 each album that it contains. its precondition is the node in the linked list and its return is none, but is does
